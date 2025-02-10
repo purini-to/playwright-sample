@@ -1,0 +1,23 @@
+{
+  "name": "playwright-sample",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/purini-to/playwright-sample.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/purini-to/playwright-sample/issues"
+  },
+  "homepage": "https://github.com/purini-to/playwright-sample#readme",
+  "description": "",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

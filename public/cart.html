@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameSale - カート</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/main.css"/>
+</head>
+<body class="bg-gray-100 flex flex-col min-h-screen">
+<header class="bg-pink-500 p-4 flex justify-between items-center">
+    <a href="/"><h1 class="text-2xl font-bold text-white">GameSale</h1></a>
+    <div class="flex space-x-6">
+        <button class="w-6 h-6">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                 stroke="currentColor" class="w-6 h-6 text-white hover:text-gray-300">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M11 19a8 8 0 100-16 8 8 0 000 16zM21 21l-4.35-4.35"/>
+            </svg>
+        </button>
+        <button class="w-6 h-6">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                 stroke="currentColor" class="w-6 h-6 text-white hover:text-gray-300">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M12 21c-4.97 0-9-4.03-9-9a9 9 0 1118 0c0 4.97-4.03 9-9 9zm0-13.5c1.2 0 2.17-.97 2.17-2.17a2.17 2.17 0 00-4.34 0c0 1.2.97 2.17 2.17 2.17z"/>
+            </svg>
+        </button>
+        <a href="/cart" class="w-6 h-6">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                 stroke="currentColor" class="w-6 h-6 text-white hover:text-gray-300">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M3 3h18l-1.5 9H4.5L3 3zm1.5 12h15m-7.5 3.75a1.5 1.5 0 103 0"/>
+            </svg>
+        </a>
+        <a href="/mypage" class="w-6 h-6">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                 stroke="currentColor" class="w-6 h-6 text-white hover:text-gray-300">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M12 14.5a4.5 4.5 0 110-9 4.5 4.5 0 010 9zM6 18.5a6 6 0 0112 0"/>
+            </svg>
+        </a>
+    </div>
+</header>
+
+<div class="flex-grow">
+    <main class="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow mt-8">
+        <h1 class="text-2xl font-bold mb-6">ショッピングカート</h1>
+
+        <!-- 商品リスト -->
+        <section class="bg-gray-50 p-4 rounded-lg shadow">
+            <h2 class="text-xl font-bold mb-3">カート内の商品</h2>
+            <div id="cart-items" class="space-y-4">
+                <div class="flex items-center border-b pb-2">
+                    <img src="/img/game1.webp" alt="スーパージャンプクエスト" class="w-16 h-16 rounded-lg">
+                    <div class="ml-4 flex-1">
+                        <p class="text-lg font-bold">スーパージャンプクエスト</p>
+                        <p class="text-yellow-500 text-sm">★★★★★ (6,619)</p>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="number" min="1" value="1" class="border w-16 text-center">
+                        <button class="text-red-500 hover:underline ml-4">削除</button>
+                    </div>
+                    <p class="text-lg font-bold ml-4">¥5,300</p>
+                </div>
+
+                <div class="flex items-center pb-2">
+                    <img src="/img/game2.webp" alt="インクバトルアリーナ" class="w-16 h-16 rounded-lg">
+                    <div class="ml-4 flex-1">
+                        <p class="text-lg font-bold">インクバトルアリーナ</p>
+                        <p class="text-yellow-500 text-sm pl-8 review-score">★★★★★ (22,869)</p>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="number" min="1" value="1" class="border w-16 text-center">
+                        <button class="text-red-500 hover:underline ml-4">削除</button>
+                    </div>
+                    <p class="text-lg font-bold ml-4">¥5,582</p>
+                </div>
+            </div>
+
+            <!-- カートが空の時の表示 -->
+            <p id="empty-cart-message" class="text-center text-gray-500 mt-4 hidden">カートに商品がありません。</p>
+        </section>
+
+        <!-- クーポンコード入力 -->
+        <section class="bg-gray-50 p-4 rounded-lg shadow mt-6">
+            <h2 class="text-xl font-bold mb-3">クーポンコード</h2>
+            <input type="text" class="w-full border p-2 rounded" placeholder="クーポンコードを入力">
+        </section>
+
+        <!-- 金額の内訳 -->
+        <section class="bg-gray-50 p-4 rounded-lg shadow mt-6">
+            <h2 class="text-xl font-bold mb-3">お支払い金額</h2>
+            <div class="text-right">
+                <p>小計: ¥10,882</p>
+                <p>クーポン割引: <span class="text-red-500">-¥500</span></p>
+                <p>配送料: <span class="text-green-500">無料</span></p>
+                <p class="text-lg font-bold mt-2">合計: ¥10,382</p>
+            </div>
+        </section>
+
+        <!-- 購入ボタン -->
+        <a href="checkout.html"
+           class="bg-blue-500 text-white px-6 py-2 mt-4 rounded w-full block text-center hover:bg-blue-600">
+            購入手続きへ
+        </a>
+    </main>
+</div>
+
+<footer class="bg-gray-800 text-white text-sm mt-8 p-6">
+    <div class="max-w-6xl mx-auto flex flex-wrap justify-between">
+        <div>
+            <h2 class="text-lg font-bold mb-2">GameSale</h2>
+            <p class="text-gray-400">最新のゲームをお得にゲットしよう！</p>
+        </div>
+        <div>
+            <h3 class="font-semibold mb-2">カスタマーサービス</h3>
+            <ul>
+                <li><a href="#" class="text-gray-400 hover:text-white">お問い合わせ</a></li>
+                <li><a href="#" class="text-gray-400 hover:text-white">返品・交換</a></li>
+                <li><a href="#" class="text-gray-400 hover:text-white">配送情報</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3 class="font-semibold mb-2">会社情報</h3>
+            <ul>
+                <li><a href="#" class="text-gray-400 hover:text-white">会社概要</a></li>
+                <li><a href="#" class="text-gray-400 hover:text-white">プライバシーポリシー</a></li>
+                <li><a href="#" class="text-gray-400 hover:text-white">利用規約</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3 class="font-semibold mb-2">フォローする</h3>
+            <div class="flex space-x-4">
+                <a href="#" class="text-gray-400 hover:text-white">Twitter</a>
+                <a href="#" class="text-gray-400 hover:text-white">Instagram</a>
+                <a href="#" class="text-gray-400 hover:text-white">Facebook</a>
+            </div>
+        </div>
+    </div>
+    <div class="text-center text-gray-500 mt-6 border-t border-gray-600 pt-4">
+        © 2025 GameSale. All rights reserved.
+    </div>
+</footer>
+</body>
+</html>
