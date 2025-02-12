@@ -18,6 +18,8 @@
   "homepage": "https://github.com/purini-to/playwright-sample#readme",
   "description": "",
   "devDependencies": {
+    "@playwright/test": "^1.50.1",
+    "@types/node": "^22.13.1",
     "http-server": "^14.1.1"
   }
 }
